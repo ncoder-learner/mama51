@@ -54,7 +54,7 @@ a{color:inherit}
 .hero-sparkle span:nth-child(6){top:85%;left:46%;animation-delay:1.4s;background:var(--rose)}
 .hero-flower{position:absolute;width:clamp(34px,7vw,58px);right:clamp(22px,9vw,120px);top:19%;color:rgba(232,162,160,.55);animation:drift 9s ease-in-out infinite}
 .scroll-cue{
-  position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:50%;margin-left:-24px;
   display:grid;place-items:center;width:48px;height:48px;color:var(--text-dim);
   opacity:0;animation:riseIn .8s ease forwards;animation-delay:1s;transition:color .2s ease;
 }
