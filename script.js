@@ -20,7 +20,7 @@ function renderPhoto(photo,index){const fig=document.createElement("figure");fig
 fetch("images/manifest.json").then(r=>{if(!r.ok)throw Error("Manifest unavailable");return r.json();}).then(data=>{photos=(Array.isArray(data)?data:data.photos||[]).map(p=>typeof p==="string"?{src:p}:p);photos.forEach(renderPhoto);photoCount.textContent=`${String(photos.length).padStart(2,"0")} MOMENTS IN THE COLLECTION`;if(!photos.length)gallery.innerHTML='<p class="gallery-empty">Your favorite moments will live here.</p>';}).catch(err=>{console.error(err);photoCount.textContent="THE PHOTO ARCHIVES";gallery.innerHTML='<p class="gallery-empty">The memories are taking a moment to load.</p>';});
 
 /* Cake designer: 51 real DOM candles, controls, lighting sequence and celebration */
-const cake=$("#cake-preview"),candleField=$("#candle-field"),cakeMessage=$("#cake-message"),lightButton=$("#light-candles"),wishButton=$("#make-wish");
+const cake=$("#cake-preview"),candleField=$("#candle-field"),cakeMessage=$("#cake-message"),lightButton=$("#light-candles"),wishButton=$("#make-wish");\ncake.dataset.sprinkles="true";cake.dataset.flowers="false";
 for(let i=0;i<51;i++){const candle=document.createElement("span");candle.className="candle";candleField.appendChild(candle);}
 $$(".swatch").forEach(button=>button.addEventListener("click",()=>{$$(".swatch").forEach(b=>b.classList.remove("active"));button.classList.add("active");cake.dataset.flavor=button.dataset.flavor;}));
 function toggleCake(button,key){const on=button.getAttribute("aria-pressed")!=="true";button.setAttribute("aria-pressed",String(on));button.querySelector(".option-state").textContent=on?"ON":"OFF";cake.dataset[key]=String(on);}
@@ -45,7 +45,19 @@ let jokeIndex=0;$("#another-joke").addEventListener("click",()=>{jokeIndex=(joke
 /* Wish card creator: live preview, copy and downloadable PNG-free text keepsake */
 const wishInput=$("#wish-input"),wishPreviewText=$("#wish-preview-text");
 wishInput.addEventListener("input",()=>{wishPreviewText.textContent=wishInput.value.trim()||"A new year. A thousand possibilities. And so much love behind you.";});
-$("#create-wish").addEventListener("click",async()=>{const wish=wishInput.value.trim();if(!wish){$("#wish-status").textContent="Write a little wish first. Even one sentence is perfect.";wishInput.focus();return;}const card=`HAPPY 51ST BIRTHDAY, MAMA\n\n51 looks good on you.\n\n${wish}\n\nA new year. A thousand possibilities.\nMade with love. Always. ♡`;const blob=new Blob([card],{type:"text/plain;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="mama-51-birthday-wish.txt";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);$("#wish-status").textContent="Your keepsake is ready. Saved as a little birthday note.";});
+$("#create-wish").addEventListener("click",()=>{const wish=wishInput.value.trim();if(!wish){$("#wish-status").textContent="Write a little wish first. Even one sentence is perfect.";wishInput.focus();return;}
+  const canvas=document.createElement("canvas");canvas.width=1200;canvas.height=1500;const ctx=canvas.getContext("2d");
+  const gradient=ctx.createLinearGradient(0,0,1200,1500);gradient.addColorStop(0,"#1D1527");gradient.addColorStop(1,"#38283f");ctx.fillStyle=gradient;ctx.fillRect(0,0,1200,1500);
+  ctx.strokeStyle="#D6AE63";ctx.lineWidth=3;ctx.strokeRect(42,42,1116,1416);ctx.strokeStyle="#D6AE6355";ctx.lineWidth=1;ctx.strokeRect(60,60,1080,1380);
+  ctx.textAlign="center";ctx.fillStyle="#D6AE63";ctx.font="30px Georgia";ctx.fillText("✦   ·   ✧   ·   ✦",600,190);
+  ctx.fillStyle="#B9AFC6";ctx.font="22px Arial";ctx.letterSpacing="8px";ctx.fillText("A LITTLE NOTE FOR YOUR NEXT CHAPTER",600,310);
+  ctx.fillStyle="#FBF6EF";ctx.font="italic 100px Georgia";ctx.fillText("51 looks",600,500);ctx.fillStyle="#E8A2A0";ctx.fillText("good on you.",600,620);
+  ctx.fillStyle="#D6AE63";ctx.fillRect(510,700,180,2);
+  ctx.fillStyle="#FBF6EF";ctx.font="36px Georgia";const words=wish.split(/\\s+/);let line="",y=830;for(const word of words){const test=line?line+" "+word:word;if(ctx.measureText(test).width>850&&line){ctx.fillText(line,600,y);line=word;y+=58;}else line=test;}if(line)ctx.fillText(line,600,y);
+  ctx.fillStyle="#B9AFC6";ctx.font="italic 29px Georgia";ctx.fillText("A new year. A thousand possibilities.",600,1190);
+  ctx.fillStyle="#D6AE63";ctx.font="22px Arial";ctx.fillText("HAPPY 51ST BIRTHDAY, MAMA  ♡",600,1320);
+  canvas.toBlob(blob=>{if(!blob){$("#wish-status").textContent="Couldn't create the card on this browser.";return;}const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="mama-51-birthday-keepsake.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$("#wish-status").textContent="Your keepsake card is ready. Save it, send it, or keep it close.";}, "image/png");
+});
 $("#clear-wish").addEventListener("click",()=>{wishInput.value="";wishPreviewText.textContent="A new year. A thousand possibilities. And so much love behind you." ;$("#wish-status").textContent="Fresh page. Fresh wish.";});
 
 /* One confetti engine used by the cake and closing easter egg */
