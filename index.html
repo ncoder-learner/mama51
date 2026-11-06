@@ -4,77 +4,129 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1D1527">
-<title>Happy 51st, Mama</title>
+<meta name="description" content="A little birthday universe made just for Mama. Happy 51st.">
+<title>Happy 51st, Mama ✦</title>
 <link rel="icon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-fill"></span></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-fill"></span></div>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Back to top">M<span>✦</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#memories">Memories</a><a href="#cake-studio">Cake studio</a><a href="#time-capsule">Time capsule</a><a href="#wish">Your wish</a>
+  </nav>
+  <a class="topbar-cta" href="#cake-studio">Let's celebrate <span>↗</span></a>
+</header>
 
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-sparkle" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
-      <svg class="hero-flower" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-        <path d="M36 12c8 8 8 16 0 24-8-8-8-16 0-24Z M60 36c-8 8-16 8-24 0 8-8 16-8 24 0Z M36 60c-8-8-8-16 0-24 8 8 8 16 0 24Z M12 36c8-8 16-8 24 0-8 8-16 8-24 0Z" stroke="currentColor" stroke-width="1.2"/>
-        <circle cx="36" cy="36" r="3" fill="currentColor"/>
-      </svg>
-      <p class="hero-eyebrow">a little something from me to you</p>
-      <h1 class="hero-title" id="hero-title">
-        <span class="line line-1">Happy</span>
-        <span class="line line-2">51<sup>st</sup>,</span>
-        <span class="line line-3">Mama</span>
-      </h1>
-      <a href="#memories" class="scroll-cue" aria-label="Scroll down to memories">
-        <svg width="20" height="32" viewBox="0 0 20 32" fill="none" aria-hidden="true">
-          <rect x="1" y="1" width="18" height="30" rx="9" stroke="currentColor" stroke-width="1.2"/>
-          <circle class="scroll-dot" cx="10" cy="10" r="2.5" fill="currentColor"/>
-        </svg>
-      </a>
-    </section>
+<main id="top">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-sparkle" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+  <svg class="hero-flower" viewBox="0 0 72 72" fill="none" aria-hidden="true"><path d="M36 12c8 8 8 16 0 24-8-8-8-16 0-24ZM60 36c-8 8-16 8-24 0 8-8 16-8 24 0ZM36 60c-8-8-8-16 0-24 8 8 8 16 0 24ZM12 36c8-8 16-8 24 0-8 8-16 8-24 0Z" stroke="currentColor" stroke-width="1.2"/><circle cx="36" cy="36" r="3" fill="currentColor"/></svg>
+  <p class="hero-eyebrow">tonight, the universe revolves around you</p>
+  <h1 class="hero-title" id="hero-title"><span class="line line-1">Happy</span><span class="line line-2">51<sup>st</sup>,</span><span class="line line-3">Mama.</span></h1>
+  <p class="hero-subtitle">A whole little world, made for one very special person.</p>
+  <a class="hero-cta" href="#memories">Enter your birthday universe <span>↓</span></a>
+  <div class="hero-bottom"><span>MADE WITH LOVE</span><span>EST. THE BEST MAMA EVER</span><span>51 / ∞</span></div>
+</section>
 
-    <section class="memories" id="memories" aria-labelledby="memories-title">
-      <p class="eyebrow">the highlight reel</p>
-      <h2 class="section-title" id="memories-title">a few of my favorites</h2>
-      <p class="section-sub">(there are hundreds more — these just made the cut)</p>
-      <div class="gallery" id="gallery" aria-live="polite"></div>
-    </section>
+<section class="memories section-shell" id="memories" aria-labelledby="memories-title">
+  <div class="section-heading">
+    <p class="eyebrow">chapter 01 · the archives</p><h2 class="section-title" id="memories-title">The good times, <em>on repeat.</em></h2>
+    <p class="section-sub">A little collection of moments worth keeping. Tap any photo to step inside it.</p>
+  </div>
+  <div class="gallery-toolbar"><span id="photo-count">LOADING THE MEMORIES…</span><span>✦ THE MAMA COLLECTION</span></div>
+  <div class="gallery" id="gallery" aria-live="polite"></div>
+</section>
 
-    <section class="joke-section" aria-labelledby="joke-title">
-      <div class="joke-card">
-        <svg class="joke-flower" viewBox="0 0 72 72" fill="none" aria-hidden="true">
-          <path d="M36 7c7 9 7 16 0 23-7-7-7-14 0-23ZM65 36c-9 7-16 7-23 0 7-7 14-7 23 0ZM36 65c-7-9-7-16 0-23 7 7 7 14 0 23ZM7 36c9-7 16-7 23 0-7 7-14 7-23 0Z" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="36" cy="36" r="3" fill="currentColor"/>
-        </svg>
-        <p class="eyebrow">a tiny intermission</p>
-        <h2 id="joke-title" class="joke-heading">One birthday joke. On the house.</h2>
-        <p class="joke-text" id="birthday-joke" aria-live="polite">Why did the birthday cake go to therapy? It had too many layers.</p>
-        <button class="joke-button" id="another-joke" type="button">Tell me another one <span aria-hidden="true">↗</span></button>
+<section class="cake-section section-shell" id="cake-studio" aria-labelledby="cake-title">
+  <div class="section-heading">
+    <p class="eyebrow">chapter 02 · the main event</p><h2 class="section-title" id="cake-title">The cake is <em>your call.</em></h2>
+    <p class="section-sub">Every birthday deserves a custom cake. Design yours, light all 51 candles, then make a wish.</p>
+  </div>
+  <div class="cake-studio">
+    <div class="cake-stage">
+      <div class="cake-confetti" aria-hidden="true"></div>
+      <div class="cake" id="cake-preview" data-flavor="rose">
+        <div class="candle-field" id="candle-field" aria-label="51 birthday candles"></div>
+        <div class="cake-top"></div><div class="cake-layer cake-layer-top"></div><div class="cake-layer cake-layer-bottom"></div>
+        <div class="cake-plate"></div>
       </div>
-    </section>
-
-    <section class="letter-section" aria-label="A birthday letter">
-      <div class="letter" id="letter">
-        <p class="letter-open">Dear Mama,</p>
-        <p>51 and somehow still the most chaotic-good influence in this house. You've spent decades pretending you don't have a favorite child while absolutely having one (it's probably not me, but I'll allow it).</p>
-        <p>Thank you for the unconditional love, the unsolicited advice I didn't ask for but definitely needed, and for putting up with me this long. Honestly, you deserve a medal — or at least a very long nap.</p>
-        <p class="letter-sign">I love you more than I let on.</p>
+      <p class="cake-stage-caption" id="cake-caption">A masterpiece in progress.</p>
+    </div>
+    <div class="cake-controls">
+      <div class="control-block"><p class="control-label">01 / PICK YOUR FROSTING</p>
+        <div class="swatches" role="group" aria-label="Cake frosting">
+          <button class="swatch active" data-flavor="rose" aria-label="Rose frosting" style="--swatch:#D88F9B"></button>
+          <button class="swatch" data-flavor="gold" aria-label="Champagne frosting" style="--swatch:#D6AE63"></button>
+          <button class="swatch" data-flavor="lavender" aria-label="Lavender frosting" style="--swatch:#A99ABD"></button>
+          <button class="swatch" data-flavor="cream" aria-label="Vanilla frosting" style="--swatch:#F2DDC5"></button>
+        </div>
       </div>
-    </section>
+      <div class="control-block"><p class="control-label">02 / ADD A LITTLE EXTRA</p>
+        <button class="toggle-option" id="sprinkle-toggle" aria-pressed="true"><span class="toggle-dot"></span><span>Confetti sprinkles</span><span class="option-state">ON</span></button>
+        <button class="toggle-option" id="flower-toggle" aria-pressed="false"><span class="toggle-dot"></span><span>Birthday flowers</span><span class="option-state">OFF</span></button>
+      </div>
+      <div class="control-block candle-control"><p class="control-label">03 / THE IMPORTANT PART</p>
+        <div class="candle-count"><strong>51</strong><span>candles. Obviously.</span></div>
+        <button class="primary-button" id="light-candles">Light all 51 candles <span>✦</span></button>
+        <button class="secondary-button" id="make-wish" disabled>Make a wish & blow them out</button>
+        <p class="cake-message" id="cake-message" aria-live="polite">Your cake. Your rules. Your birthday.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section class="closing" aria-labelledby="closing-title">
-      <button class="closing-heart" id="closing-heart" type="button" aria-label="Send Mama a little birthday love">
-        <span aria-hidden="true">&#10084;</span>
-      </button>
-      <p class="heart-hint" id="heart-hint">psst… tap the heart</p>
-      <h2 class="closing-title" id="closing-title">Happy Birthday, Mama</h2>
-      <p class="closing-sub">Here's to 51. &mdash; love, your favorite (probably)</p>
-      <p class="closing-note" id="closing-note" aria-live="polite"></p>
-    </section>
-  </main>
+<section class="capsule-section section-shell" id="time-capsule" aria-labelledby="capsule-title">
+  <div class="section-heading">
+    <p class="eyebrow">chapter 03 · open when</p><h2 class="section-title" id="capsule-title">A little something <em>for later.</em></h2>
+    <p class="section-sub">Three tiny envelopes. Open whichever one you need.</p>
+  </div>
+  <div class="capsule-grid">
+    <button class="capsule-card" data-capsule="laugh"><span class="capsule-number">01</span><span class="envelope" aria-hidden="true">✉</span><span class="capsule-prompt">OPEN WHEN YOU NEED A LAUGH</span><span class="capsule-title">A very important announcement</span><span class="capsule-action">Break the seal ↗</span></button>
+    <button class="capsule-card" data-capsule="love"><span class="capsule-number">02</span><span class="envelope" aria-hidden="true">✉</span><span class="capsule-prompt">OPEN WHEN YOU NEED A REMINDER</span><span class="capsule-title">In case you forgot</span><span class="capsule-action">Break the seal ↗</span></button>
+    <button class="capsule-card" data-capsule="celebrate"><span class="capsule-number">03</span><span class="envelope" aria-hidden="true">✉</span><span class="capsule-prompt">OPEN WHEN YOU NEED A WIN</span><span class="capsule-title">A standing ovation</span><span class="capsule-action">Break the seal ↗</span></button>
+  </div>
+  <div class="capsule-reveal" id="capsule-reveal" hidden aria-live="polite"><button class="reveal-close" id="close-reveal" aria-label="Close message">×</button><p class="eyebrow" id="reveal-kicker">A NOTE FOR YOU</p><h3 id="reveal-title"></h3><p id="reveal-message"></p><span class="reveal-sign">Always, your biggest fan. ♡</span></div>
+</section>
 
-  <script src="script.js"></script>
+<section class="joke-section section-shell" aria-labelledby="joke-title">
+  <div class="joke-card"><p class="eyebrow">chapter 04 · comedy hour</p><h2 id="joke-title" class="joke-heading">51 years of being <em>iconic.</em></h2><p class="joke-text" id="birthday-joke" aria-live="polite">You're not old. You're a classic, and classics are expensive.</p><button class="joke-button" id="another-joke" type="button">I can take another <span>↗</span></button><span class="joke-counter" id="joke-counter">01 / 08</span></div>
+</section>
+
+<section class="letter-section section-shell" aria-label="A birthday letter">
+  <div class="letter-wrap"><p class="eyebrow">chapter 05 · the part that matters</p><div class="letter" id="letter"><p class="letter-open">Dear Mama,</p><p>51 and somehow still the most chaotic-good influence in this house. You've spent decades pretending you don't have a favorite child while absolutely having one (it's probably not me, but I'll allow it).</p><p>Thank you for the unconditional love, the unsolicited advice I didn't ask for but definitely needed, and for putting up with me this long. Honestly, you deserve a medal — or at least a very long nap.</p><p class="letter-sign">I love you more than I let on.</p><span class="letter-stamp">WITH LOVE · ALWAYS</span></div></div>
+</section>
+
+<section class="wish-section section-shell" id="wish" aria-labelledby="wish-title">
+  <div class="wish-copy"><p class="eyebrow">chapter 06 · leave a little magic</p><h2 class="section-title" id="wish-title">Your turn to <em>make a wish.</em></h2><p class="section-sub">Write down a wish for this next trip around the sun. Keep it close, or turn it into a little keepsake.</p>
+    <label class="wish-label" for="wish-input">MY WISH FOR YOUR 51ST YEAR</label>
+    <textarea id="wish-input" maxlength="220" placeholder="I hope this year brings you..." rows="3"></textarea>
+    <div class="wish-actions"><button class="primary-button" id="create-wish" type="button">Create my keepsake <span>✦</span></button><button class="secondary-button" id="clear-wish" type="button">Start again</button></div>
+    <p class="wish-status" id="wish-status" aria-live="polite"></p>
+  </div>
+  <div class="wish-preview" id="wish-preview"><div class="preview-stars">✦　·　✧　·　✦</div><p>FOR YOUR NEXT CHAPTER</p><strong>51 looks<br><em>good on you.</em></strong><span id="wish-preview-text">A new year. A thousand possibilities. And so much love behind you.</span><small>HAPPY BIRTHDAY, MAMA ♡</small></div>
+</section>
+
+<section class="closing" aria-labelledby="closing-title">
+  <button class="closing-heart" id="closing-heart" type="button" aria-label="Send Mama a little birthday love"><span aria-hidden="true">♥</span></button>
+  <p class="heart-hint" id="heart-hint">one last little surprise · tap the heart</p>
+  <h2 class="closing-title" id="closing-title">To 51 more reasons<br>to <em>celebrate you.</em></h2>
+  <p class="closing-sub">Happy Birthday, Mama. I love you. Always.</p><p class="closing-note" id="closing-note" aria-live="polite"></p>
+  <a href="#top" class="back-top">BACK TO THE TOP ↑</a>
+</section>
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close photo viewer">×</button>
+  <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
+  <figure class="lightbox-figure"><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+  <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next photo">›</button>
+  <div class="lightbox-footer"><span id="lightbox-counter">01 / 01</span><span>THE MAMA COLLECTION</span></div>
+</dialog>
+<script src="script.js"></script>
 </body>
 </html>
