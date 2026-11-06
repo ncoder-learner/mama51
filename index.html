@@ -93,8 +93,18 @@
   <div class="capsule-reveal" id="capsule-reveal" hidden aria-live="polite"><button class="reveal-close" id="close-reveal" aria-label="Close message">×</button><p class="eyebrow" id="reveal-kicker">A NOTE FOR YOU</p><h3 id="reveal-title"></h3><p id="reveal-message"></p><span class="reveal-sign">Always, your biggest fan. ♡</span></div>
 </section>
 
-<section class="joke-section section-shell" aria-labelledby="joke-title">
-  <div class="joke-card"><p class="eyebrow">chapter 04 · comedy hour</p><h2 id="joke-title" class="joke-heading">51 years of being <em>iconic.</em></h2><p class="joke-text" id="birthday-joke" aria-live="polite">You're not old. You're a classic, and classics are expensive.</p><button class="joke-button" id="another-joke" type="button">I can take another <span>↗</span></button><span class="joke-counter" id="joke-counter">01 / 08</span></div>
+<section class="joke-section section-shell" id="laughs" aria-labelledby="joke-title">
+  <div class="joke-card"><p class="eyebrow">chapter 04 · comedy hour</p><h2 id="joke-title" class="joke-heading">51 years of being <em>iconic.</em></h2><p class="section-sub joke-intro">A fresh terrible joke, whenever you need one. The quality control department has been dismissed.</p><p class="joke-text" id="birthday-joke" aria-live="polite">You're not old. You're a classic, and classics are expensive.</p><button class="joke-button" id="another-joke" type="button">Give me another <span>↗</span></button><span class="joke-counter" id="joke-counter">01 / 25</span></div>
+</section>
+
+<section class="roulette-section section-shell" id="birthday-roulette" aria-labelledby="roulette-title">
+  <div class="roulette-card">
+    <p class="eyebrow">chapter 05 · absolutely official birthday planning</p>
+    <h2 class="section-title" id="roulette-title">Can't decide? <em>Let fate pick.</em></h2>
+    <p class="section-sub">Tap the button and get one very important birthday assignment.</p>
+    <div class="roulette-result" aria-live="polite" aria-atomic="true"><span class="roulette-icon" id="roulette-icon">✦</span><strong id="roulette-result">Your birthday mission is waiting.</strong><small id="roulette-detail">No planning required. Just press the button.</small></div>
+    <button class="primary-button roulette-button" id="spin-roulette" type="button">Pick my birthday plan <span>↗</span></button>
+  </div>
 </section>
 
 <section class="letter-section section-shell" aria-label="A birthday letter">
@@ -120,6 +130,13 @@
 </section>
 </main>
 
+<nav class="mobile-dock" aria-label="Quick birthday navigation">
+  <a href="#top"><span aria-hidden="true">⌂</span><small>Home</small></a>
+  <a href="#memories"><span aria-hidden="true">▧</span><small>Photos</small></a>
+  <a href="#cake-studio"><span aria-hidden="true">✦</span><small>Cake</small></a>
+  <a href="#laughs"><span aria-hidden="true">☻</span><small>Jokes</small></a>
+  <a href="#wish"><span aria-hidden="true">♡</span><small>Wish</small></a>
+</nav>
 <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
   <button class="lightbox-close" id="lightbox-close" aria-label="Close photo viewer">×</button>
   <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous photo">‹</button>
