@@ -40,8 +40,34 @@ $$(".capsule-card").forEach(card=>card.addEventListener("click",()=>{const item=
 $("#close-reveal").addEventListener("click",()=>$("#capsule-reveal").hidden=true);
 
 /* Joke carousel with non-repeating immediate sequence */
-const jokes=["You're not old. You're a classic, and classics are expensive.","At 51, you're like a software update: somehow better, and still asking everyone to restart.","51 candles? We were going to get you a cake, but the fire department said no.","Why did the birthday cake go to therapy? It had too many layers.","Age is just a number. In your case, a very impressive one with excellent taste.","Why did the candle apply for a job? It wanted to make a little light work.","They say wisdom comes with age. You're basically a whole library now.","You're not getting older. You're becoming a limited-edition masterpiece."];
-let jokeIndex=0;$("#another-joke").addEventListener("click",()=>{jokeIndex=(jokeIndex+1)%jokes.length;$("#birthday-joke").textContent=jokes[jokeIndex];$("#joke-counter").textContent=`${String(jokeIndex+1).padStart(2,"0")} / 08`;});
+const jokes=[
+"You're not old. You're a classic, and classics are expensive.",
+"At 51, you're like a software update: somehow better, and still asking everyone to restart.",
+"51 candles? We were going to get you a cake, but the fire department said no.",
+"Why did the birthday cake go to therapy? It had too many layers.",
+"Age is just a number. In your case, a very impressive one with excellent taste.",
+"Why did the candle apply for a job? It wanted to make a little light work.",
+"They say wisdom comes with age. You're basically a whole library now.",
+"You're not getting older. You're becoming a limited-edition masterpiece.",
+"What's Mama's favorite exercise? Running the entire household.",
+"At this point, your birthday cake needs its own fire extinguisher.",
+"You're 51. That's 18 with 33 years of experience.",
+"Why don't birthdays ever get lonely? They always come with presents.",
+"You're not aging. You're collecting upgrades.",
+"What's the secret to looking this good at 51? Mind your business. It's classified.",
+"51 is the new 31. The math is questionable, but the confidence is excellent.",
+"Why did the birthday card go to school? It wanted to be well-rounded.",
+"You're proof that some things really do get better with time. Like cake. And you.",
+"At 51, you have reached the age where a quiet evening is a luxury vacation.",
+"What's better than one amazing year? The next one. Obviously.",
+"Your back doesn't hurt. It's just applauding your life choices.",
+"Why was the birthday candle so confident? It knew it was on fire.",
+"You're not over the hill. You're at the scenic overlook.",
+"51 years of making everything look easy. We know it's not. Thank you.",
+"What's the best thing about being 51? You can blame absolutely anything on being tired.",
+"Happy birthday! May your coffee be strong and your family be only slightly annoying."
+];
+let jokeIndex=0;$("#another-joke").addEventListener("click",()=>{jokeIndex=(jokeIndex+1)%jokes.length;$("#birthday-joke").textContent=jokes[jokeIndex];$("#joke-counter").textContent=`${String(jokeIndex+1).padStart(2,"0")} / ${String(jokes.length).padStart(2,"0")}`;});
 
 /* Wish card creator: live preview, copy and downloadable PNG-free text keepsake */
 const wishInput=$("#wish-input"),wishPreviewText=$("#wish-preview-text");
@@ -67,3 +93,37 @@ let heartClicked=false;$("#closing-heart").addEventListener("click",()=>{if(hear
 
 /* Letter reveal */
 const letter=$("#letter");if(reduceMotion||!("IntersectionObserver"in window))letter.classList.add("in-view");else{const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){letter.classList.add("in-view");observer.unobserve(letter);}}),{threshold:.2});observer.observe(letter);}
+
+/* Birthday roulette: a one-tap activity picker for the birthday girl */
+const birthdayPlans=[
+{icon:"🍰",title:"Cake first. Questions later.",detail:"Choose the biggest slice. Birthday calories are on vacation."},
+{icon:"📸",title:"Take a ridiculous family photo.",detail:"Everyone has to commit to the pose. No boring smiles allowed."},
+{icon:"🎶",title:"You control the music.",detail:"Pick the playlist. Everyone else is legally required to sing along."},
+{icon:"🛋️",title:"A guilt-free relaxation break.",detail:"Put your feet up. Someone else can handle the little things."},
+{icon:"🍽️",title:"Birthday dinner is your decision.",detail:"Pick the food and the place. The family follows."},
+{icon:"💃",title:"Have a 30-second dance party.",detail:"The more embarrassing the moves, the better."},
+{icon:"💌",title:"Collect three compliments.",detail:"Everyone nearby has to say one thing they appreciate about you."},
+{icon:"🌅",title:"Plan one thing just for yourself.",detail:"A small treat, a day out, or something you've been putting off."},
+{icon:"🎬",title:"Pick tonight's movie.",detail:"You get final say. No committee meetings."},
+{icon:"📱",title:"Call someone who makes you laugh.",detail:"A birthday catch-up with one of your favorite people."},
+{icon:"🍨",title:"Dessert round two.",detail:"Because the first dessert was clearly just a warm-up."},
+{icon:"👑",title:"Declare yourself birthday royalty.",detail:"For the next hour, your only job is to enjoy being celebrated."}
+];
+let lastPlan=-1;
+$("#spin-roulette").addEventListener("click",()=>{
+ let next;do{next=Math.floor(Math.random()*birthdayPlans.length);}while(next===lastPlan);lastPlan=next;
+ const plan=birthdayPlans[next];
+ $("#roulette-icon").textContent=plan.icon;
+ $("#roulette-result").textContent=plan.title;
+ $("#roulette-detail").textContent=plan.detail;
+ $("#spin-roulette").textContent="Spin again ↗";
+});
+/* Keep the fixed mobile dock in sync with the section currently on screen. */
+const dockLinks=$$(".mobile-dock a");
+if("IntersectionObserver"in window&&dockLinks.length){
+ const dockSections=dockLinks.map(link=>document.querySelector(link.getAttribute("href"))).filter(Boolean);
+ const dockObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){dockLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href")==="#"+entry.target.id));}});
+ },{rootMargin:"-35% 0px -55% 0px",threshold:0});
+ dockSections.forEach(section=>dockObserver.observe(section));
+}
