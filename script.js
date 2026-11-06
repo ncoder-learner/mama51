@@ -20,7 +20,8 @@ function renderPhoto(photo,index){const fig=document.createElement("figure");fig
 fetch("images/manifest.json").then(r=>{if(!r.ok)throw Error("Manifest unavailable");return r.json();}).then(data=>{photos=(Array.isArray(data)?data:data.photos||[]).map(p=>typeof p==="string"?{src:p}:p);photos.forEach(renderPhoto);photoCount.textContent=`${String(photos.length).padStart(2,"0")} MOMENTS IN THE COLLECTION`;if(!photos.length)gallery.innerHTML='<p class="gallery-empty">Your favorite moments will live here.</p>';}).catch(err=>{console.error(err);photoCount.textContent="THE PHOTO ARCHIVES";gallery.innerHTML='<p class="gallery-empty">The memories are taking a moment to load.</p>';});
 
 /* Cake designer: 51 real DOM candles, controls, lighting sequence and celebration */
-const cake=$("#cake-preview"),candleField=$("#candle-field"),cakeMessage=$("#cake-message"),lightButton=$("#light-candles"),wishButton=$("#make-wish");\ncake.dataset.sprinkles="true";cake.dataset.flowers="false";
+const cake=$("#cake-preview"),candleField=$("#candle-field"),cakeMessage=$("#cake-message"),lightButton=$("#light-candles"),wishButton=$("#make-wish");
+cake.dataset.sprinkles="true";cake.dataset.flowers="false";
 for(let i=0;i<51;i++){const candle=document.createElement("span");candle.className="candle";candleField.appendChild(candle);}
 $$(".swatch").forEach(button=>button.addEventListener("click",()=>{$$(".swatch").forEach(b=>b.classList.remove("active"));button.classList.add("active");cake.dataset.flavor=button.dataset.flavor;}));
 function toggleCake(button,key){const on=button.getAttribute("aria-pressed")!=="true";button.setAttribute("aria-pressed",String(on));button.querySelector(".option-state").textContent=on?"ON":"OFF";cake.dataset[key]=String(on);}
